@@ -22,6 +22,8 @@ jobs:
     name: ${{ matrix.os }} python ${{ matrix.python-version }} test
     steps:
     - uses: actions/checkout@v2
+    - name: Setup C++ environment
+      uses: kurocha/setup-cpp@v1
     - name: Setup conda
       uses: s-weigand/setup-conda@v1
       #uses: conda-incubator/setup-miniconda@v2
