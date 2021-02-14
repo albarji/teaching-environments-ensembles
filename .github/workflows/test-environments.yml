@@ -8,7 +8,7 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latests]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         #python: [3.6, 3.7, 3.8]
         python: [3.6]
 
