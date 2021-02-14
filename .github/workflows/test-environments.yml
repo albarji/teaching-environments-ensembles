@@ -34,7 +34,7 @@ jobs:
         #auto-activate-base: false
     - name: Install dependencies
       run: |
-        consta install --file environment.yml
+        conda install --file environment.yml
 #        conda env create -f environment.yml
         
 #    - name: Initialize conda shell
