@@ -12,17 +12,9 @@ jobs:
         #python: [3.6, 3.7, 3.8]
         python-version: [3.6]
 
-    name: OS ${{ matrix.os }} python ${{ matrix.python-version }} test
+    name: ${{ matrix.os }} python ${{ matrix.python-version }} test
     steps:
     - uses: actions/checkout@v2
-#    - name: Set up Python 3.8
-#      uses: actions/setup-python@v2
-#      with:
-#        python-version: ${{ matrix.python }}
-#    - name: Add conda to system path
-#      run: |
-#        # $CONDA is an environment variable pointing to the root of the miniconda directory
-#        echo $CONDA/bin >> $GITHUB_PATH
     - name: Setup conda
       uses: s-weigand/setup-conda@v1
       with:
@@ -34,4 +26,4 @@ jobs:
         conda env create -f environment.yml
     - name: Test with pytest
       run: |
-        source activate ensembles-labs && pip install pytest && pytest tests.py
+        conda activate ensembles-labs && pip install pytest && pytest tests.py
