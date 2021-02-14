@@ -7,13 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
+      matrix:
+        python: [3.6, 3.7, 3.8]
 
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: ${{ matrix.python }}
     - name: Add conda to system path
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
@@ -23,4 +25,4 @@ jobs:
         conda env create -f environment.yml
     - name: Test with pytest
       run: |
-        conda activate ensembles-labs && pip install pytest && pytest tests.py
+        source activate ensembles-labs && pip install pytest && pytest tests.py
