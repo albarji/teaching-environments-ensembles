@@ -11,6 +11,13 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         #python: [3.6, 3.7, 3.8]
         python-version: [3.6]
+        include:
+          - os: ubuntu-latest
+            activation-command: source activate
+          - os: macos-latest
+            activation-command: source activate
+          - os: windows-latest
+            activation-command: activate
 
     name: ${{ matrix.os }} python ${{ matrix.python-version }} test
     steps:
@@ -26,4 +33,4 @@ jobs:
         conda env create -f environment.yml
     - name: Test with pytest
       run: |
-        conda activate ensembles-labs && pip install pytest && pytest tests.py
+        ${{ matrix.activation-command }} ensembles-labs && pip install pytest && pytest tests.py
