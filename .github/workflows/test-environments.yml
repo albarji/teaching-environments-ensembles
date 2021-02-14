@@ -11,13 +11,13 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         #python: [3.6, 3.7, 3.8]
         python-version: [3.6]
-#        include:
-#          - os: ubuntu-latest
-#            activation-command: source activate
-#          - os: macos-latest
-#            activation-command: source activate
-#          - os: windows-latest
-#            activation-command: activate
+        include:
+          - os: ubuntu-latest
+            shell: bash -l {0}
+          - os: macos-latest
+            shell: bash -l {0}
+          - os: windows-latest
+            shell: pwsh
 
     name: ${{ matrix.os }} python ${{ matrix.python-version }} test
     steps:
@@ -38,6 +38,7 @@ jobs:
 #    - name: Initialize conda shell
 #      run: conda init
     - name: Test with pytest
+      shell: ${{ matrix.shell }}
       run: |
         conda install pytest && conda info && conda list && which python && which pytest && pytest tests.py
 #        conda activate ensembles-labs && conda install pytest && conda list && which python && which pytest && pytest tests.py
