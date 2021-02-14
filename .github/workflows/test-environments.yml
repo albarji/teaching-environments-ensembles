@@ -38,5 +38,5 @@ jobs:
 #      run: conda init
     - name: Test with pytest
       run: |
-        conda install pytest && conda list && which python && which pytest && pytest tests.py
+        conda install pytest && conda info && conda list && which python && which pytest && pytest tests.py
 #        conda activate ensembles-labs && conda install pytest && conda list && which python && which pytest && pytest tests.py
