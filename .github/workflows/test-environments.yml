@@ -27,9 +27,9 @@ jobs:
       # uses: seanmiddleditch/gha-setup-vsdevenv@8c6bbf80998779f2bba87b1452832e561b65fd57
     #  uses: seanmiddleditch/gha-setup-vsdevenv@v3
     - name: Install VS Code
-      if: ${{ matrix.os }} == windows-latest
-      run: |
-        - powershell -File Install-VSCode.ps1
+      if: ${{ matrix.os == 'windows-latest'}} 
+      shell: pwsh
+      run: powershell -File Install-VSCode.ps1
     - name: Setup conda
       uses: s-weigand/setup-conda@v1
       #uses: conda-incubator/setup-miniconda@v2
