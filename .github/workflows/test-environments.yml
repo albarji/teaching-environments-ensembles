@@ -31,7 +31,7 @@ jobs:
       uses: crazy-max/ghaction-chocolatey@v1.4.0
       if: ${{ matrix.os == 'windows-latest'}} 
       with: 
-        args: choco install msvisualcplusplus2013-redist
+        args: install msvisualcplusplus2013-redist
       
     - name: Setup conda
       uses: s-weigand/setup-conda@v1
