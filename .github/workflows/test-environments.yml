@@ -28,6 +28,7 @@ jobs:
     #  uses: seanmiddleditch/gha-setup-vsdevenv@v3
     
     - name: Check Windows architecture
+      if: ${{ matrix.os == 'windows-latest'}} 
       run: |
         wmic os get osarchitecture
     
