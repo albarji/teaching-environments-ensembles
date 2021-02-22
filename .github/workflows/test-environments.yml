@@ -27,6 +27,10 @@ jobs:
       # uses: seanmiddleditch/gha-setup-vsdevenv@8c6bbf80998779f2bba87b1452832e561b65fd57
     #  uses: seanmiddleditch/gha-setup-vsdevenv@v3
     
+    - name: Check Windows architecture
+      run: |
+        wmic os get osarchitecture
+    
     - name: Install VS C++ Distributables
       uses: crazy-max/ghaction-chocolatey@v1.4.0
       if: ${{ matrix.os == 'windows-latest'}} 
