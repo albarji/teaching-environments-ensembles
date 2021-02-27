@@ -1,4 +1,4 @@
-name: Test the environment under different operative systems and python configurations
+name: Environments workings
 
 on: [push]
 
