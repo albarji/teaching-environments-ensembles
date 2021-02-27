@@ -1,8 +1,12 @@
 # Teaching Environments
 
+<!--
 |Linux|Mac OS X|Windows|
 |-----|--------|-------|
 |[![Build Status](https://travis-ci.org/albarji/teaching-environments-ensembles.svg?branch=master)](https://travis-ci.org/albarji/teaching-environments-ensembles)|[![Build Status](https://travis-ci.org/albarji/teaching-environments-ensembles.svg?branch=master)](https://travis-ci.org/albarji/teaching-environments-ensembles)|[![Build status](https://ci.appveyor.com/api/projects/status/jb3rcrh3n0pavv5c?svg=true)](https://ci.appveyor.com/project/albarji/teaching-environments-ensembles)|
+-->
+
+![example workflow](https://github.com/albarji/teaching-environments-ensembles/actions/workflows/test-environments.yml/badge.svg)
 
 Conda environments for Decision Trees and Ensembles lectures.
 
