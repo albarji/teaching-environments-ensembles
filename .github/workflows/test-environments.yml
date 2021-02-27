@@ -30,13 +30,13 @@ jobs:
     - name: Check Windows architecture
       if: ${{ matrix.os == 'windows-latest'}} 
       run: |
-        wmic os get osarchitecture && dir c:\Windows\System32\vc*.dll && PATH
+        wmic os get osarchitecture && dir c:\Windows\System32\vc*.dll && echo %PATH%
     
-    - name: Install VS C++ Distributables
-      uses: crazy-max/ghaction-chocolatey@v1.4.0
-      if: ${{ matrix.os == 'windows-latest'}} 
-      with: 
-        args: install --force vcredist140
+#    - name: Install VS C++ Distributables
+#      uses: crazy-max/ghaction-chocolatey@v1.4.0
+#      if: ${{ matrix.os == 'windows-latest'}} 
+#      with: 
+#        args: install --force vcredist140
       
     - name: Setup conda
       uses: s-weigand/setup-conda@v1
