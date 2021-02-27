@@ -30,7 +30,11 @@ jobs:
     - name: Check Windows architecture
       if: ${{ matrix.os == 'windows-latest'}} 
       run: |
-        wmic os get osarchitecture && dir c:\Windows\System32\vc*.dll && echo %PATH%
+        wmic os get osarchitecture && dir c:\Windows\System32\vc*.dll
+        
+    - name: Add VS C++ DLLs to the PATH
+      run: echo "##[add-path]c:\Windows\System32\"
+      if: matrix.os == 'windows-latest'
     
 #    - name: Install VS C++ Distributables
 #      uses: crazy-max/ghaction-chocolatey@v1.4.0
