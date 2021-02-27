@@ -6,13 +6,10 @@ import sklearn
 import pandas as pd
 import scipy
 import numpy as np
-import ete3
-import skopt
 
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
-from skopt import BayesSearchCV
 
 
 def getdata():
