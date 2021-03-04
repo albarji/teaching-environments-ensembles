@@ -34,7 +34,7 @@ to start the notebook server.
 
 ## Windows
 
-Download the [environment file](https://raw.githubusercontent.com/albarji/teaching-environments-ensembles/master/ensembles/environment.yml) to your computer (right click -> Save link as...) and open an **Anaconda Navigator**. Click on the **Environments** tab, and look for the **Import** button. After clicking it, select as **Specification file** the environment file you downloaded. This will create an environment named `ensembles-labs` with the necessary packages. Note the creation process might take a while.
+Download the [environment file](https://raw.githubusercontent.com/albarji/teaching-environments-ensembles/master/environment.yml) to your computer (right click -> Save link as...) and open an **Anaconda Navigator**. Click on the **Environments** tab, and look for the **Import** button. After clicking it, select as **Specification file** the environment file you downloaded. This will create an environment named `ensembles-labs` with the necessary packages. Note the creation process might take a while.
 
 After creating the environment, click the play icon at the environment name, and choose the option to launch a Jupyter notebook.
 
