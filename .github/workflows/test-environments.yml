@@ -33,8 +33,10 @@ jobs:
         wmic os get osarchitecture && dir c:\Windows\System32\vc*.dll
         
     - name: Add VS C++ DLLs to the PATH
+      shell: bash
       if: matrix.os == 'windows-latest'
-      run: echo "c:\Windows\System32\" >> $GITHUB_PATH
+      run: |
+        echo "c:\\Miniconda\\Library\\mingw-w64\\bin" >> $GITHUB_PATH
     
 #    - name: Install VS C++ Distributables
 #      uses: crazy-max/ghaction-chocolatey@v1.4.0
