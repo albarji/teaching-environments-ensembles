@@ -9,59 +9,26 @@ jobs:
       max-parallel: 5
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        #python: [3.7, 3.8]
-        python-version: [3.7]
-#        include:
-#          - os: ubuntu-latest
-#            shell: bash -l {0}
-#          - os: macos-latest
-#            shell: bash -l {0}
-#          - os: windows-latest
-#            shell: pwsh
+        python-version: [3.7, 3.8]
 
     name: ${{ matrix.os }} python ${{ matrix.python-version }} test
     steps:
     - uses: actions/checkout@v2
-    #- name: Setup VS Dev Environment
-      # You may pin to the exact commit or the version.
-      # uses: seanmiddleditch/gha-setup-vsdevenv@8c6bbf80998779f2bba87b1452832e561b65fd57
-    #  uses: seanmiddleditch/gha-setup-vsdevenv@v3
-    
-    - name: Check Windows architecture
-      if: ${{ matrix.os == 'windows-latest'}} 
-      run: |
-        wmic os get osarchitecture && dir c:\Windows\System32\vc*.dll
         
     - name: Add VS C++ DLLs to the PATH
       shell: bash
       if: matrix.os == 'windows-latest'
       run: |
         echo "c:\\Miniconda\\Library\\mingw-w64\\bin" >> $GITHUB_PATH
-    
-#    - name: Install VS C++ Distributables
-#      uses: crazy-max/ghaction-chocolatey@v1.4.0
-#      if: ${{ matrix.os == 'windows-latest'}} 
-#      with: 
-#        args: install --force vcredist140
-      
+
     - name: Setup conda
       uses: s-weigand/setup-conda@v1
-      #uses: conda-incubator/setup-miniconda@v2
       with:
-        #update-conda: true
         python-version: ${{ matrix.python-version }}
-        #conda-channels: anaconda, conda-forge
-        #activate-environment: ensembles-labs
-        #environment-file: environment.yml
-        #auto-activate-base: false
     - name: Install dependencies
       run: |
         conda env update --file environment.yml --name base
-#        conda env create -f environment.yml
         
-#    - name: Initialize conda shell
-#      run: conda init
     - name: Test with pytest
       run: |
         conda install pytest && conda info && conda env list && conda list && which python && which pytest && pytest .github/workflows/test_environments.py
-#        conda activate ensembles-labs && conda install pytest && conda list && which python && which pytest && pytest tests.py
