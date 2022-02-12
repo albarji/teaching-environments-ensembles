@@ -37,6 +37,12 @@ jobs:
         conda env list
         conda list
         
-    - name: Test with pytest
+    - name: Test with pytest (Unix/Mac)
+      if: matrix.os != 'windows-latest'
       run: |
         source activate base && conda install pytest && pytest .github/workflows/test_environments.py
+
+    - name: Test with pytest (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        conda activate base && conda install pytest && pytest .github/workflows/test_environments.py
