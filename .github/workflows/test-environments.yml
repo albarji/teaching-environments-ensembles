@@ -30,6 +30,13 @@ jobs:
       run: |
         conda env update --file environment.yml --name base
         
+    - name: Show environment info
+      run: |
+        which python
+        which conda
+        conda env list
+        conda list
+        
     - name: Test with pytest
       run: |
-        conda install pytest && conda info && conda env list && conda list && which python && which pytest && pytest .github/workflows/test_environments.py
+        source activate base && conda install pytest && pytest .github/workflows/test_environments.py
