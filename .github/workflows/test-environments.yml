@@ -21,14 +21,22 @@ jobs:
       run: |
         echo "c:\\Miniconda\\Library\\mingw-w64\\bin" >> $GITHUB_PATH
 
-    - name: Setup conda
-      uses: s-weigand/setup-conda@v1
+ #    - name: Setup conda
+ #     uses: s-weigand/setup-conda@v1
+ #     with:
+ #       python-version: ${{ matrix.python-version }}
+        
+    - name: Setup Miniconda
+      uses: conda-incubator/setup-miniconda@v2.1.1
       with:
         python-version: ${{ matrix.python-version }}
+        auto-activate-base: false
+        activate-environment: ensembles-test
+        environment-file: environment.yml
         
-    - name: Install dependencies
-      run: |
-        conda env update --file environment.yml --name base
+#    - name: Install dependencies
+#      run: |
+#        conda env update --file environment.yml --name base
         
     - name: Show environment info
       run: |
@@ -37,12 +45,16 @@ jobs:
         conda env list
         conda list
         
-    - name: Test with pytest (Unix/Mac)
-      if: matrix.os != 'windows-latest'
+    - name: Test with pytest
       run: |
-        source activate base && conda install pytest && pytest .github/workflows/test_environments.py
+        conda install pytest && pytest .github/workflows/test_environments.py
+        
+#    - name: Test with pytest (Unix/Mac)
+#      if: matrix.os != 'windows-latest'
+#      run: |
+#        source activate base && conda install pytest && pytest .github/workflows/test_environments.py
 
-    - name: Test with pytest (Windows)
-      if: matrix.os == 'windows-latest'
-      run: |
-        conda activate base && conda install pytest && pytest .github/workflows/test_environments.py
+#    - name: Test with pytest (Windows)
+#      if: matrix.os == 'windows-latest'
+#      run: |
+#        conda activate base && conda install pytest && pytest .github/workflows/test_environments.py
