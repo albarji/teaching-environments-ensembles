@@ -44,7 +44,6 @@ jobs:
     - name: Show environment info
       run: |
         which python
-#        which conda
         conda info
         conda env list
         conda list
