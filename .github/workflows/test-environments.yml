@@ -5,6 +5,9 @@ on: [push]
 jobs:
   test-environment:
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -l {0}
     strategy:
       max-parallel: 5
       matrix:
