@@ -31,7 +31,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         auto-activate-base: false
-        activate-environment: ensembles-test
+        activate-environment: ensembles-labs
         environment-file: environment.yml
         
 #    - name: Install dependencies
@@ -42,6 +42,7 @@ jobs:
       run: |
         which python
         which conda
+        conda info
         conda env list
         conda list
         
