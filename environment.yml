@@ -4,7 +4,7 @@ dependencies:
   - matplotlib
   - pandas<=1.5.2
   - pip
-  - py-xgboost=1.5.*
+  - py-xgboost=1.7.*
   - scikit-learn=1.2.*
   - seaborn
   - tornado
