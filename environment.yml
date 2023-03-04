@@ -3,10 +3,8 @@ dependencies:
   - jupyter=1.0.*
   - matplotlib
   - pandas<=1.5.2
-  - pip
   - py-xgboost=1.7.*
   - scikit-learn=1.2.*
   - seaborn
+  - shap==0.41.*
   - tornado
-  - pip:
-    - shap==0.40.*
