@@ -27,6 +27,7 @@ jobs:
     - name: Setup Miniconda
       uses: conda-incubator/setup-miniconda@v2.2.0
       with:
+        miniconda-version: latest
         python-version: ${{ matrix.python-version }}
         auto-activate-base: false
         activate-environment: ensembles-labs
