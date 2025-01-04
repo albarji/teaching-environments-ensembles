@@ -1,5 +1,6 @@
 name: ensembles-labs
 dependencies:
+  - python=3.10
   - jupyter=1.0.0
   - matplotlib=3.9.2
   - pandas=2.2.3
