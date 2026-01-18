@@ -18,11 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
         
-    - name: Add VS C++ DLLs to the PATH
-      shell: bash
-      if: matrix.os == 'windows-latest'
-      run: |
-        echo "c:\\Miniconda\\Library\\mingw-w64\\bin" >> $GITHUB_PATH
+    # - name: Add VS C++ DLLs to the PATH
+    #   shell: bash
+    #   if: matrix.os == 'windows-latest'
+    #   run: |
+    #     echo "c:\\Miniconda\\Library\\mingw-w64\\bin" >> $GITHUB_PATH
         
     # - name: Setup Miniconda
     #   uses: conda-incubator/setup-miniconda@v2.2.0
@@ -35,10 +35,7 @@ jobs:
         
     - name: Show environment info
       run: |
-        which python
-        # conda info
-        # conda env list
-        # conda list
+        python --version
         
     - name: Test with pytest
       run: |
