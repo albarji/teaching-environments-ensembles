@@ -23,6 +23,11 @@ jobs:
     #   if: matrix.os == 'windows-latest'
     #   run: |
     #     echo "c:\\Miniconda\\Library\\mingw-w64\\bin" >> $GITHUB_PATH
+
+    - uses: actions/setup-python@v6
+      with:
+        python-version: ${{ matrix.python-version }}
+        pip-install: requirements.txt
         
     # - name: Setup Miniconda
     #   uses: conda-incubator/setup-miniconda@v2.2.0
@@ -40,4 +45,4 @@ jobs:
     - name: Test with pytest
       run: |
         # conda install pytest && pytest .github/workflows/test_environments.py
-        pip install -r requirements.txt && pip install pytest && pytest .github/workflows/test_environments.py
+        pip install pytest && pytest .github/workflows/test_environments.py
