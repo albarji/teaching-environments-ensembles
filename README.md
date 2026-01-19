@@ -1,49 +1,79 @@
 # Teaching Environments
 
-<!--
-|Linux|Mac OS X|Windows|
-|-----|--------|-------|
-|[![Build Status](https://travis-ci.org/albarji/teaching-environments-ensembles.svg?branch=master)](https://travis-ci.org/albarji/teaching-environments-ensembles)|[![Build Status](https://travis-ci.org/albarji/teaching-environments-ensembles.svg?branch=master)](https://travis-ci.org/albarji/teaching-environments-ensembles)|[![Build status](https://ci.appveyor.com/api/projects/status/jb3rcrh3n0pavv5c?svg=true)](https://ci.appveyor.com/project/albarji/teaching-environments-ensembles)|
--->
-
 [![Environment working badge](https://github.com/albarji/teaching-environments-ensembles/actions/workflows/test-environments.yml/badge.svg)](https://github.com/albarji/teaching-environments-ensembles/actions/workflows/test-environments.yml)
 
-Conda environments for Decision Trees and Ensembles lectures.
+Python environment for my Decision Trees and Ensembles lectures.
 
-## Usage
+## Getting started
 
-First install a **Python 3, 64-bits** [Conda distribution](https://anaconda.org/anaconda/python). If you are using Windows make sure you install Anaconda only for your current user, and under a folder that does not contain non-UTF characters (such as **ñ** or **á**). After installing follow the instructions for your particular operative system.
+This environment has been designed for a dedicated **Python 3.14** environment. You have two options for achieving this:
 
-## Linux or Mac
+* [conda](https://www.anaconda.com/download) (RECOMMENDED)
+* [pyenv](https://github.com/pyenv/pyenv) to install **Python 3.14**, then [virtualenv](https://www.w3schools.com/python/python_virtualenv.asp) to create a dedicated environment.
 
-Download the [environment file](https://raw.githubusercontent.com/albarji/teaching-environments-ensembles/master/environment.yml) to your computer (right click -> Save link as...) and open a terminal in the same folder. Then type
+These two options are further detailed in what follows. pyenv is not supported in Windows, so you will need to install the environment in the [Windows Subsystem for Linux](https://learn.microsoft.com/es-es/windows/wsl/install), or follow the conda route.
 
-    conda env create -f environment.yml
+## A) Using conda
 
-to create an environment named `ensembles-labs` with the necessary packages.
+1. Install [Anaconda](https://www.anaconda.com/download) after accepting their terms of service and whatnots.
+    * Windows users: make sure you install Anaconda only for your current user, and under a folder that does not contain non-UTF characters (such as **ñ** or **á**).
 
-After creating the environment, open a terminal in the folder with the notebooks you want to work with. Then log into the environment running
+2. Download the [requirements file](https://raw.githubusercontent.com/albarji/teaching-environments-ensembles/master/requirements.txt) to your computer (right click -> Save link as...).
 
-    source activate ensembles-labs
+3. Open a terminal and navigate to the folder where you downloaded the requirements file.
+    * Windows users: use an "Anaconda Prompt" instead of the standard Windows terminal.
 
-and then type
+4. Create a new python environment with
 
-    jupyter notebook
+```bash
+conda create --name ensembles-labs python==3.14
+```
 
-to start the notebook server.
+5. Activate the environment
 
-## Windows
+```bash
+conda activate ensembles-labs
+```
 
-Download the [environment file](https://raw.githubusercontent.com/albarji/teaching-environments-ensembles/master/environment.yml) to your computer (right click -> Save link as...) and open an **Anaconda Navigator**. Click on the **Environments** tab, and look for the **Import** button. After clicking it, select as **Specification file** the environment file you downloaded. This will create an environment named `ensembles-labs` with the necessary packages. Note the creation process might take a while.
+6. Install the requirements
 
-After creating the environment, click the play icon at the environment name, and choose the option to launch a Jupyter notebook.
+```bash
+pip install -r requirements.txt
+```
 
-If for whatever reason the Jupyter notebook launch fails, you can also try opening an Anaconda Prompt in the folder with the notebooks you want to work with, then log into the environment running
+## B) Using pyenv + virtualenv
 
-    activate ensembles-labs
+1. Install [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation).
 
-and then type
+2. Open a terminal and install the required python version.
 
-    jupyter notebook
+```bash
+pyenv install 3.14
+```
 
-to start the notebook server.
+3. Download the [requirements file](https://raw.githubusercontent.com/albarji/teaching-environments-ensembles/master/requirements.txt) to your computer (right click -> Save link as...), into the folder where you want to create the virtual environment.
+
+4. Navigate to the folder where you downloaded the requirements file.
+
+5. Activate python version in folder
+
+```bash
+pyenv local 3.14
+```
+
+6. Create virtual env
+
+```bash
+python -m venv env
+```
+
+7. Activate virtual env
+
+```bash
+source ./env/bin/activate
+```
+
+8. Install requirements
+
+```bash
+pip install -r requirements.txt
