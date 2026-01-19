@@ -1,4 +1,4 @@
-# Teaching Environments
+# Trees and ensembles teaching environment
 
 [![Environment working badge](https://github.com/albarji/teaching-environments-ensembles/actions/workflows/test-environments.yml/badge.svg)](https://github.com/albarji/teaching-environments-ensembles/actions/workflows/test-environments.yml)
 
