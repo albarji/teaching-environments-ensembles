@@ -17,12 +17,6 @@ jobs:
     name: ${{ matrix.os }} python ${{ matrix.python-version }} test
     steps:
     - uses: actions/checkout@v3
-        
-    # - name: Add VS C++ DLLs to the PATH
-    #   shell: bash
-    #   if: matrix.os == 'windows-latest'
-    #   run: |
-    #     echo "c:\\Miniconda\\Library\\mingw-w64\\bin" >> $GITHUB_PATH
 
     - name: Add OMP dependencies in MacOS
       shell: bash
@@ -34,20 +28,10 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         
-    # - name: Setup Miniconda
-    #   uses: conda-incubator/setup-miniconda@v2.2.0
-    #   with:
-    #     miniconda-version: latest
-    #     python-version: ${{ matrix.python-version }}
-    #     auto-activate-base: false
-    #     activate-environment: ensembles-labs
-    #     environment-file: environment.yml
-        
     - name: Show environment info
       run: |
         python --version
         
     - name: Test with pytest
       run: |
-        # conda install pytest && pytest .github/workflows/test_environments.py
         pip install -r requirements.txt && pip install pytest && pytest .github/workflows/test_environments.py
