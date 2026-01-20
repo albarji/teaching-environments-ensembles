@@ -11,7 +11,7 @@ This environment has been designed for a dedicated **Python 3.14** environment. 
 * [conda](https://www.anaconda.com/download) (RECOMMENDED)
 * [pyenv](https://github.com/pyenv/pyenv) to install **Python 3.14**, then [virtualenv](https://www.w3schools.com/python/python_virtualenv.asp) to create a dedicated environment.
 
-These two options are further detailed in what follows. pyenv is not supported in Windows, so you will need to install the environment in the [Windows Subsystem for Linux](https://learn.microsoft.com/es-es/windows/wsl/install), or follow the conda route.
+If you are using Windows I would recommend installing the [Windows Subsystem for Linux](https://learn.microsoft.com/es-es/windows/wsl/install) and following the linux instructions in what follows. If you still prefer installing python natively in Windows, take into account the considerations in what follows.
 
 ## A) Using conda
 
@@ -44,6 +44,7 @@ pip install -r requirements.txt
 ## B) Using pyenv + virtualenv
 
 1. Install [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation).
+    * Windows users: install [pyenv-win](https://github.com/pyenv-win/pyenv-win) instead. You might need to activate [script execution permissions](https://learn.microsoft.com/es-es/previous-versions/windows/powershell-scripting/hh847748(v=wps.640)?redirectedfrom=MSDN) in your Powershell.
 
 2. Open a terminal and install the required python version.
 
@@ -61,17 +62,18 @@ pyenv install 3.14
 pyenv local 3.14
 ```
 
-6. Create virtual env
+6. Create virtual environment
 
 ```bash
-python -m venv env
+python -m venv ensembles-labs
 ```
 
-7. Activate virtual env
+7. Activate virtual environment
 
 ```bash
-source ./env/bin/activate
+source ./ensembles-labs/bin/activate
 ```
+* For Windows users: `.\ensembles-labs\Scripts\activate`
 
 8. Install requirements
 
